@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Data;
 using TodoApi.Repositories;
+using TodoApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ builder.Services.AddDbContext<TodoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TodoConnection")));
 
 builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+
+builder.Services.AddScoped<TodoService>();
 
 var app = builder.Build();
 
