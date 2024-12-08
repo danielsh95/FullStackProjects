@@ -19,10 +19,20 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddDbContext<TodoContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TodoConnection")));
+if (builder.Configuration["DataSource"] == "DataBase")
+{
 
-builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+
+    builder.Services.AddDbContext<TodoContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("TodoConnection")));
+
+    builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+}
+else //File
+{
+    var filePath = builder.Configuration["PathTodoJsonFile"] ?? "todos.json";
+    builder.Services.AddSingleton<ITodoRepository>(provider => new TodoFileRepository(filePath));
+}
 
 builder.Services.AddScoped<TodoService>();
 

@@ -41,8 +41,5 @@ namespace TodoApi.Services
         {
              await todoRepository.DeleteTodo(id);
         }
-
-
-
     }
 }
