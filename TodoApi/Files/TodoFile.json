@@ -1,27 +1,42 @@
 [
   {
     "Id": 1,
-    "Title": "A",
-    "Description": "Todo A"
+    "UserName": "A",
+    "Email": "Email A",
+    "Password": "Password A",
+    "todoLists": {
+      "Todos": [
+        {
+          "Id": 1,
+          "Title": "Todo A 1",
+          "Description": "Description A 1"
+        },
+        {
+          "Id": 2,
+          "Title": "Todo A 2",
+          "Description": "Description A 2"
+        }
+      ]
+    }
   },
   {
     "Id": 2,
-    "Title": "B",
-    "Description": "Todo B"
-  },
-  {
-    "Id": 3,
-    "Title": "C",
-    "Description": "Todo C"
-  },
-  {
-    "Id": 5,
-    "Title": "E",
-    "Description": "Todo E"
-  },
-  {
-    "Id": 7,
-    "Title": "G",
-    "Description": "Todo G"
-  }
+    "UserName": "B",
+    "Email": "Email B",
+    "Password": "Password B",
+    "todoLists": {
+      "Todos": [
+        {
+          "Id": 1,
+          "Title": "Todo B 1",
+          "Description": "Description B 1"
+        },
+        {
+          "Id": 2,
+          "Title": "Todo B 2",
+          "Description": "Description B 2"
+        }
+      ]
+    }
+  } 
 ]

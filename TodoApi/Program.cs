@@ -23,18 +23,18 @@ if (builder.Configuration["DataSource"] == "DataBase")
 {
 
 
-    builder.Services.AddDbContext<TodoContext>(options =>
+    builder.Services.AddDbContext<UserContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("TodoConnection")));
 
-    builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+    builder.Services.AddScoped<IUserRepository, UserRepository>();
 }
 else //File
 {
     var filePath = builder.Configuration["PathTodoJsonFile"] ?? "todos.json";
-    builder.Services.AddSingleton<ITodoRepository>(provider => new TodoFileRepository(filePath));
+    builder.Services.AddSingleton<IUserRepository>(provider => new UserFileRepository(filePath));
 }
 
-builder.Services.AddScoped<TodoService>();
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 

@@ -6,6 +6,6 @@
         public string? UserName { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
-        public List<TodoList>? todoLists { get; set; }
+        public TodoList todoLists { get; set; }
     }
 }
